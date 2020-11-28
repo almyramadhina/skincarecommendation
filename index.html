@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Skin care recommendation</title>
+		<meta name="description" content="Simple Effects for Drop-Down Lists" />
+		<meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/style1.css" />
+		<script src="js/modernizr.custom.63321.js"></script>
+	</head>
+	<body>
+		<section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+			<div id="wrapper">
+				<div class="col-lg-8 mx-auto">
+				  <h2>Let's get started!</h2>
+				</div>
+
+				<section class="main clearfix">
+					<div class="fleft">
+						<ul>
+							Are you over 17 years old?
+						</ul>
+						<select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+							<option value="1">Yes</option>
+							<option value="2">No</option>
+						</select>
+						<br/>
+						<ul>
+							Choose your skin type
+						</ul>
+						<select id="cd-dropdown2" name="cd-dropdown" class="cd-select">
+							<option value="-1">Skin type</option>
+							<option value="1">Normal</option>
+							<option value="2">Oily</option>
+							<option value="3">Dry</option>
+							<option value="4">Combination</option>
+							<option value="5">Sensitive</option>
+						</select>
+						<br/>
+						<ul>
+							Choose your skin problem
+						</ul>
+						<select id="cd-dropdown3" name="cd-dropdown" class="cd-select">
+							<option value="1">Skin problem</option>
+							<option value="2">Acne</option>
+							<option value="3">Whitehead</option>
+							<option value="4">Blackhead</option>
+							<option value="5">Moisturizing</option>
+							<option value="5">Hydrating</option>
+							<option value="6">Anti-aging</option>
+							<option value="6">Texture</option>
+							<option value="6">Dull skin</option>
+						</select>
+						<br/>
+						<ul>
+							Choose your product
+						</ul>
+						<select id="cd-dropdown4" name="cd-dropdown" class="cd-select">
+							<option value="-1" selected>Category</option>
+							<option value="1">Facial wash</option>
+							<option value="2">Hydrating Toner</option>
+							<option value="3">Exfoliating Toner</option>
+							<option value="4">Exfoliating Pad</option>
+							<option value="5">Essence</option>
+							<option value="6">Serum</option>
+							<option value="7">Mask</option>
+							<option value="8">Cream</option>
+							<option value="9">Moisturizer</option>
+							<option value="10">Lip Care</option>
+							<option value="11">Eye Cream</option>
+						</select>
+						<br/>
+						<ul>
+							Choose your budget
+						</ul>
+						<select id="cd-dropdown4" name="cd-dropdown" class="cd-select">
+							<option value="-1" selected>Price</option>
+							<option value="1">less than 100.000</option>
+							<option value="2">100.000-300.000</option>
+							<option value="3">300.000-500.000</option>
+							<option value="4">more than 500.000</option>
+						</select>
+					</div>
+				</section>
+			</div>
+		</section><!-- /container -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.dropdown.js"></script>
+		<script type="text/javascript">
+			
+			$( function() {
+				
+				$( '#cd-dropdown' ).dropdown( {
+					gutter : 5
+				} );
+				$( '#cd-dropdown2' ).dropdown( {
+					gutter : 5
+				} );
+				$( '#cd-dropdown3' ).dropdown( {
+					gutter : 5
+				} );
+				$( '#cd-dropdown4' ).dropdown( {
+					gutter : 5
+				} );
+				$( '#cd-dropdown5' ).dropdown( {
+					gutter : 5
+				} );
+				$( '#cd-dropdown6' ).dropdown( {
+					gutter : 5
+				} );
+
+			});
+
+		</script>
+	</body>
+</html>
