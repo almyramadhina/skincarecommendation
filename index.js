@@ -10,16 +10,22 @@ app.use(serveStatic(path.join(__dirname,"/FE"))) //serve static files in FE Fold
 
 const pool = new Pool() //create DB connection from env
 
-app.get('/test', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM skintype')
-    await pool.end()
-    console.log(result) //erase later
-    res.json(result)
-  } catch (error) {
-    console.log(error)
-		res.json({"response-code":404,"message":"not found"})
-  }
+/*
+  parameterized query
+  const text = 'INSERT INTO users(name, email) VALUES($1, $2) RETURNING *'
+  const values = ['brianc', 'brian.m.carlson@gmail.com']
+
+  pool.query(text, values)
+*/
+app.get('/test', async (req, result) => {
+  pool.query('SELECT * FROM skintype', (err, res) => {
+    if (err){
+      throw err
+    }
+    console.log(res) //erase later
+    result.json(res)
+  })
+  await pool.end()
 })
 
 app.get('/', (req, res) => { //home page
