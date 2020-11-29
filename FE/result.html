@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Skin care recommendation</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+		<script src="js/modernizr.custom.63321.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+    <div class="container">
+        <br/><br/>
+        <h1>Recommended Products for Your Skin</h1>
+        <br/><br/>
+
+        <main class="card">
+            <div id="products">
+             </div>
+        </main>
+
+    </div>
+	</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        var resData = [
+                        { images: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
+                        { images: "https://asset.kompas.com/crops/KAb3R0iow9ICldE6SDTvg3Fpw40=/0x0:924x616/750x500/data/photo/2020/07/16/5f0f80d4e5eea.jpg", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
+                        { images: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
+                    ];
+        $.each(resData, function (i) {
+            var hasil = '<article class="card"><img class="card-img-top" src=">' + resData[i].images + '" alt="produk" </img><p>' + resData[i].namaproduk + '</p><p>' + resData[i].harga + '</p>';
+            $('#products').append(hasil);
+        })
+    });
+</script>
