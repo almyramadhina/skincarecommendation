@@ -23,7 +23,7 @@ app.get('/test', async (req, result) => {
       throw err
     }
     console.log(res) //erase later
-    result.json(res)
+    result.json(res.rows)
   })
   await pool.end()
 })
