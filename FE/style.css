@@ -1,3 +1,7 @@
+h1 {
+    text-align: center;
+}
+
 .inputGroup {
     background-color: #fff;
     display: block;
@@ -140,7 +144,7 @@
   
       color:  #5f71db;
       brackground-color: transparent;
-      border: 1px solid #5f71db;
+      border: 3px solid #5f71db;
       border-radius: 100px;
   
       padding: 0.3em 1.2em;
