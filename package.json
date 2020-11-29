@@ -1,0 +1,16 @@
+{
+  "name": "skincare_dss",
+  "version": "1.0.0",
+  "description": "a web app for choosing the right skincare",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install",
+    "start": "node index.js"
+  },
+  "author": "Calvin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
