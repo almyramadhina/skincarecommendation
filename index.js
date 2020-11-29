@@ -2,26 +2,28 @@ const express = require('express')
 const app = express();
 const path = require('path');
 const cors = require('cors');
-var serveStatic = require('serve-static')
+var serveStatic = require('serve-static') //serve static files
+const { Pool, Client } = require('pg') //database connection
+require('dotenv').config() //buat env
 
-require('dotenv').config()
+app.use(serveStatic(path.join(__dirname,"/FE"))) //serve static files in FE Folder
 
-app.use(serveStatic(path.join(__dirname,'FE')))
+const pool = new Pool() //create DB connection from env
 
-/*connectDB = ({
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT,
-  name: process.env.DB_NAME
-});
+app.get('/test', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM skintype')
+    await pool.end()
+    console.log(result) //erase later
+    res.json(result)
+  } catch (error) {
+    console.log(error)
+		res.json({"response-code":404,"message":"not found"})
+  }
+})
 
-var pgp = require('pg-promise')();
-const CONNECT_DB = 'postgres://' + connectDB.user + ':' + connectDB.pass + '@' + connectDB.host + ':' + connectDB.port + '/' + connectDB.name; 
-var dbPromise = pgp(CONNECT_DB); 
-*/
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname,"/index.html"));
+app.get('/', (req, res) => { //home page
+  res.sendFile(path.join(__dirname,"/FE/index.html"));
 });
 
 port = process.env.PORT
