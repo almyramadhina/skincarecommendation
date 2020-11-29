@@ -2,137 +2,188 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title>Skin care recommendation</title>
-		<meta name="description" content="Simple Effects for Drop-Down Lists" />
-		<meta name="keywords" content="drop-down, select, jquery, plugin, fallback, transition, transform, 3d, css3" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico"> 
-		<link rel="stylesheet" type="text/css" href="http://localhost:8000/css/style1.css" />
-		<script src="http://localhost:8000/js/modernizr.custom.63321.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+		<script src="js/modernizr.custom.63321.js"></script>
 	</head>
 	<body>
-		<section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
-			<div id="wrapper">
-				<div class="col-lg-8 mx-auto">
-				  <h2>Let's get started!</h2>
-				</div>
+    <form class="form">
+        <h2>Are you over 17 years old?</h2>
+        <div class="inputGroup">
+            <input id="ageY" name="age" type="radio"/>
+            <label for="ageY">Yes</label>
+        </div>
+        <div class="inputGroup">
+            <input id="ageN" name="age" type="radio"/>
+            <label for="ageN">No</label>
+        </div>
 
-				<section class="main clearfix">
-					<div class="fleft">
-						<ul>
-							Are you over 17 years old?
-						</ul>
-						<select id="cd-dropdown" name="cd-dropdown" class="cd-select">
-							<option value="1">Yes</option>
-							<option value="2">No</option>
-						</select>
-						<br/>
-						<ul>
-							Choose your skin type
-						</ul>
-						<select id="cd-dropdown2" name="cd-dropdown" class="cd-select">
-							<option value="-1">Skin type</option>
-							<option value="1">Normal</option>
-							<option value="2">Oily</option>
-							<option value="3">Dry</option>
-							<option value="4">Combination</option>
-							<option value="5">Sensitive</option>
-						</select>
-						<br/>
-						<ul>
-							Choose your skin problem
-						</ul>
-						<select id="cd-dropdown3" name="cd-dropdown" class="cd-select">
-							<option value="1">Skin problem</option>
-							<option value="2">Acne</option>
-							<option value="3">Whitehead</option>
-							<option value="4">Blackhead</option>
-							<option value="5">Moisturizing</option>
-							<option value="5">Hydrating</option>
-							<option value="6">Anti-aging</option>
-							<option value="6">Texture</option>
-							<option value="6">Dull skin</option>
-						</select>
-						<br/>
-						<ul>
-							Choose your product
-						</ul>
-						<select id="cd-dropdown4" name="cd-dropdown" class="cd-select">
-							<option value="-1" selected>Category</option>
-							<option value="1">Facial wash</option>
-							<option value="2">Hydrating Toner</option>
-							<option value="3">Exfoliating Toner</option>
-							<option value="4">Exfoliating Pad</option>
-							<option value="5">Essence</option>
-							<option value="6">Serum</option>
-							<option value="7">Mask</option>
-							<option value="8">Cream</option>
-							<option value="9">Moisturizer</option>
-							<option value="10">Lip Care</option>
-							<option value="11">Eye Cream</option>
-						</select>
-						<br/>
-						<ul>
-							Choose your budget
-						</ul>
-						<select id="cd-dropdown4" name="cd-dropdown" class="cd-select">
-							<option value="-1" selected>Price</option>
-							<option value="1">less than 100.000</option>
-							<option value="2">100.000-300.000</option>
-							<option value="3">300.000-500.000</option>
-							<option value="4">more than 500.000</option>
-						</select>
-						<br/>
-						<ul>
-							Do you have any allergies to these chemical substances?
-						</ul>
-						<select id="cd-dropdown4" name="cd-dropdown" class="cd-select">
-							<option value="-1" selected>Allergy</option>
-							<option value="1">Hyaluronics</option>
-							<option value="2">Collagen</option>
-							<option value="3">Salicylic Acid</option>
-							<option value="4">AHA</option>
-							<option value="5">BHA</option>
-							<option value="6">PHA</option>
-							<option value="7">Snail</option>
-							<option value="8">Centella</option>
-							<option value="9">Niacinamide</option>
-							<option value="10">Galactomyces</option>  
-							<option value="11">Retinol</option>
-						</select>
-					</div>
-				</section>
-			</div>
-		</section><!-- /container -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script type="text/javascript" src="http://localhost:8000/js/jquery.dropdown.js"></script>
-		<script type="text/javascript">
-			
-			$( function() {
-				
-				$( '#cd-dropdown' ).dropdown( {
-					gutter : 5
-				} );
-				$( '#cd-dropdown2' ).dropdown( {
-					gutter : 5
-				} );
-				$( '#cd-dropdown3' ).dropdown( {
-					gutter : 5
-				} );
-				$( '#cd-dropdown4' ).dropdown( {
-					gutter : 5
-				} );
-				$( '#cd-dropdown5' ).dropdown( {
-					gutter : 5
-				} );
-				$( '#cd-dropdown6' ).dropdown( {
-					gutter : 5
-				} );
+        <h2>Choose your skin type</h2>
+        <div class="inputGroup">
+            <input id="type1" name="type" type="radio"/>
+            <label for="type1">Normal</label>
+        </div>
+        <div class="inputGroup">
+            <input id="type2" name="type" type="radio"/>
+            <label for="type2">Oily</label>
+        </div>
+        <div class="inputGroup">
+            <input id="type3" name="type" type="radio"/>
+            <label for="type3">Dry</label>
+        </div>
+        <div class="inputGroup">
+            <input id="type4" name="type" type="radio"/>
+            <label for="type4">Combination</label>
+        </div>
+        <div class="inputGroup">
+            <input id="type5" name="type" type="radio"/>
+            <label for="type5">Sensitive</label>
+        </div>
 
-			});
+        <h2>Choose your skin problem</h2>
+        <div class="inputGroup">
+            <input id="prob1" name="prob" type="radio"/>
+            <label for="prob1">Acne</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prob2" name="prob" type="radio"/>
+            <label for="prob2">Whitehead</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prob3" name="prob" type="radio"/>
+            <label for="prob3">Blackhead</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prob4" name="prob" type="radio"/>
+            <label for="prob4">Less-moisturized</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prob5" name="prob" type="radio"/>
+            <label for="prob5">Less-hydrated</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prob6" name="prob" type="radio"/>
+            <label for="prob6">Aging</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prob7" name="prob" type="radio"/>
+            <label for="prob7">Bad Texture</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prob8" name="prob" type="radio"/>
+            <label for="prob8">Dull Skin</label>
+        </div>
 
-		</script>
+        <h2>Choose your product</h2>
+        <div class="inputGroup">
+            <input id="prod1" name="prod" type="radio"/>
+            <label for="prod1">Facial Wash</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod2" name="prod" type="radio"/>
+            <label for="prod2">Exfoliating Toner</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod3" name="prod" type="radio"/>
+            <label for="prod3">Hydrating Toner</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod4" name="prod" type="radio"/>
+            <label for="prod4">Essence</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod5" name="prod" type="radio"/>
+            <label for="prod5">Serum</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod6" name="prod" type="radio"/>
+            <label for="prod6">Ampoule</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod7" name="prod" type="radio"/>
+            <label for="prod7">Cream</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod8" name="prod" type="radio"/>
+            <label for="prod8">Moisturizer</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod9" name="prod" type="radio"/>
+            <label for="prod9">Sleeping Mask</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod10" name="prod" type="radio"/>
+            <label for="prod10">Face Mask</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod11" name="prod" type="radio"/>
+            <label for="prod11">Lip Care</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prod12" name="prod" type="radio"/>
+            <label for="prod12">Eye Cream</label>
+        </div>
+
+        <h2>Do you have any allergies to these chemical substances?</h2>
+        <div class="inputGroup">
+            <input id="allg1" name="allg" type="checkbox"/>
+            <label for="allg1">Hyaluronics</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg2" name="allg" type="checkbox"/>
+            <label for="allg2">Collagen</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg3" name="allg" type="checkbox"/>
+            <label for="allg3">AHA</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg4" name="allg" type="checkbox"/>
+            <label for="allg4">BHA</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg5" name="allg" type="checkbox"/>
+            <label for="allg5">PHA</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg6" name="allg" type="checkbox"/>
+            <label for="allg6">Snail</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg7" name="allg" type="checkbox"/>
+            <label for="allg7">Centella</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg8" name="allg" type="checkbox"/>
+            <label for="allg8">Niacinamide</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg9" name="allg" type="checkbox"/>
+            <label for="allg9">Galactomyces</label>
+        </div>
+        <div class="inputGroup">
+            <input id="allg10" name="allg" type="checkbox"/>
+            <label for="allg10">Retinol</label>
+        </div>
+
+        <h2>Choose your busget price</h2>
+        <div class="inputGroup">
+            <input id="prc1" name="prc" type="radio"/>
+            <label for="prc1">Less than 100.000</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prc2" name="prc" type="radio"/>
+            <label for="prc2">100.000-300.000</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prc3" name="prc" type="radio"/>
+            <label for="prc3">300.000-500.000</label>
+        </div>
+        <div class="inputGroup">
+            <input id="prc4" name="prc" type="radio"/>
+            <label for="prc4">More than 500.000</label>
+        </div>
+
 	</body>
 </html>
