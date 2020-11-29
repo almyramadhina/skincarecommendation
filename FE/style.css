@@ -22,7 +22,7 @@
     height: 10px;
     border-radius: 50%;
     content: '';
-    background-color: #5562eb;
+    background-color: #7789f0;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -62,8 +62,8 @@
     opacity: 1;
   }
   .inputGroup input:checked ~ label:after {
-    background-color: #54E0C7;
-    border-color: #54E0C7;
+    background-color: #42d4ba;
+    border-color: #42d4ba;
   }
   .inputGroup input {
     width: 32px;
@@ -109,3 +109,55 @@
     padding: 0 8px;
   }
   
+  @import url(https://fonts.googleapis.com/css?family=Open + Sans:300, 400, 600);
+
+  body {
+      font-family: "Fira Sans", sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .buttonContainer {
+      margin-top: 100px;
+      text-align: center;
+  }
+  
+  h1 {
+      color: rgba(69, 69, 69, 1);
+      line-height: 2em;
+  }
+  
+  /* BUTTON CSS
+  ------------------------------------------- */
+  
+  a.button {
+      display: inline-block;
+  
+      font: normal normal 300 1.3em "Fira Sans";
+      text-decoration: none;
+  
+      color:  #5f71db;
+      brackground-color: transparent;
+      border: 1px solid #5f71db;
+      border-radius: 100px;
+  
+      padding: 0.3em 1.2em;
+      margin: 5px;
+  
+      background-size: 200% 100%;
+      background-image: linear-gradient(
+          to right,
+          transparent 50%,
+          rgba #5f71db 50%
+      );
+      transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s,
+          color 0.5s ease 0s, background-color 0.5s ease;
+  }
+  
+  a.button:hover {
+      color: rgba(255, 255, 255, 1);
+      background-color:  #5f71db;
+      background-position: -100% 100%;
+  }  
