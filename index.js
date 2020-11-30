@@ -35,18 +35,22 @@ app.get('/test', async (req, result) => {
 })
 
 app.post('/recommend', async (req, res) => {
-  const values = [req.body.bahan]
-  console.log(values)
-  const querytext = 'SELECT * FROM bahan WHERE namabahan = $1'
-  const pool = new Pool() //create a DB connection
+  if (req.body.umur<17){ //if umur <17
+    res.json({"response-code":403,"message":"Forbidden"})
+  } else {
+    const values = [req.body.bahan]
+    console.log(values)
+    const querytext = 'SELECT * FROM bahan WHERE namabahan = $1'
+    const pool = new Pool() //create a DB connection
 
-  pool.query(querytext,values).then(result => {
-    res.json(result.rows)
-  }).catch(err =>{
-    console.log(err)
-    res.json({"response-code":500,"message":"Internal server error"})
-  })
-  await pool.end()
+    pool.query(querytext,values).then(result => {
+      res.json(result.rows)
+    }).catch(err =>{
+      console.log(err)
+      res.json({"response-code":500,"message":"Internal server error"})
+    })
+    await pool.end()
+  }
 })
 
 app.get('/', async (req, res) => { //home page
