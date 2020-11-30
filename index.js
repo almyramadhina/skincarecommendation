@@ -57,7 +57,6 @@ app.post('/recommend', async (req, res) => {
     const pool = new Pool() //create a DB connection
 
     await pool.query(querytext,values).then(result => {
-      console.log(result.rows)
       res.json({"response-code":200,"message":"OK", "data":result.rows})
     }).catch(err =>{
       console.log(err)
