@@ -2,10 +2,16 @@ const express = require('express')
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 var serveStatic = require('serve-static') //serve static files
-const { Pool, Client } = require('pg') //database connection
+const { Pool, Client } = require('pg'); //database connection
+const { query } = require('express');
 require('dotenv').config() //buat env
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(serveStatic(path.join(__dirname,"/FE"))) //serve static files in FE Folder
 
 /*
@@ -28,7 +34,22 @@ app.get('/test', async (req, result) => {
   await pool.end()
 })
 
-app.get('/', (req, res) => { //home page
+app.post('/recommend', async (req, res) => {
+  const values = [req.body.bahan]
+  console.log(values)
+  const querytext = 'SELECT * FROM bahan WHERE namabahan = $1'
+  const pool = new Pool() //create a DB connection
+
+  pool.query(querytext,values).then(result => {
+    res.json(result.rows)
+  }).catch(err =>{
+    console.log(err)
+    res.json({"response-code":500,"message":"Internal server error"})
+  })
+  await pool.end()
+})
+
+app.get('/', async (req, res) => { //home page
   res.sendFile(path.join(__dirname,"/FE/index.html"));
 });
 
