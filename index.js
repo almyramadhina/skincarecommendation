@@ -21,7 +21,7 @@ app.post('/recommend', async (req, res) => {
   } else {
     var querytext, values
     if (!req.body.alergi1){ //tidak ada alergi
-      querytext='SELECT DISTINCT p.id_produk, namaproduk, kategori, harga FROM produk p, profprod pp\n\
+      querytext='SELECT DISTINCT p.id_produk, namaproduk, kategori, harga, image FROM produk p, profprod pp\n\
       WHERE harga>$1 AND harga<=$2 AND kategori = $3 AND p.id_produk = pp.id_produk AND id_profil IN\n\
       (SELECT id_profil FROM profile p\n\
       INNER JOIN skinproblem sp ON sp.id_skinprob=p.id_skinprob\n\
@@ -30,7 +30,7 @@ app.post('/recommend', async (req, res) => {
       values=[req.body.hargabawah, req.body.hargaatas, req.body.kategori, req.body.skinprob, req.body.skintype]
     } else {
       if (!req.body.alergi2){ //ada 1 alergi
-        querytext='SELECT DISTINCT p.id_produk, namaproduk, kategori, harga FROM produk p, profprod pp, produk_bahan pb\n\
+        querytext='SELECT DISTINCT p.id_produk, namaproduk, kategori, harga, image FROM produk p, profprod pp, produk_bahan pb\n\
         WHERE harga>$1 AND harga<=$2 AND kategori = $3 AND p.id_produk = pp.id_produk AND id_profil IN\n\
         (SELECT id_profil FROM profile p\n\
         INNER JOIN skinproblem sp ON sp.id_skinprob=p.id_skinprob\n\
@@ -41,7 +41,7 @@ app.post('/recommend', async (req, res) => {
         WHERE namabahan = $6 AND b.id_bahan = pb.id_bahan)'
         values=[req.body.hargabawah, req.body.hargaatas, req.body.kategori, req.body.skinprob, req.body.skintype, req.body.alergi1]
       } else { //ada 2 alergi
-        querytext='SELECT DISTINCT p.id_produk, namaproduk, kategori, harga FROM produk p, profprod pp, produk_bahan pb\n\
+        querytext='SELECT DISTINCT p.id_produk, namaproduk, kategori, harga, image FROM produk p, profprod pp, produk_bahan pb\n\
         WHERE harga>$1 AND harga<=$2 AND kategori = $3 AND p.id_produk = pp.id_produk AND id_profil IN\n\
         (SELECT id_profil FROM profile p\n\
         INNER JOIN skinproblem sp ON sp.id_skinprob=p.id_skinprob\n\
