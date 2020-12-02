@@ -23,7 +23,8 @@ const sendForm = async() => {
             var hargaatas=2000000;
         },
 	})
-	console.log(data);
+    console.log(data);
+    const response = await fetch('http://52.74.114.194:8000/recommend');
 	const json = await response.json();
 	console.log(json);
 }
