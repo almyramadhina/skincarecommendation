@@ -14,7 +14,7 @@
         <h1>Recommended Products for Your Skin</h1>
         <br/><br/>
 
-        <main class="card">
+        <main class="e-card-horizontal">
             <div id="products">
              </div>
         </main>
@@ -25,14 +25,37 @@
 
 <script>
     $(document).ready(function(){
+       $.ajax({
+                    url: '52.74.114.194:8000/recommend',
+                    type:'POST',
+                    dataType: 'json',
+                    success: function(response) {
+						console.log(response);
+                        hasil = '';
+                        var recprod = document.getElementById('products')
+                        $.each(response['data'], function(key, value) {
+                            hasil = 
+                            '<article class="card"><img class="card-img-top" src=" '+value.images+ '"> </img>'
+                            '<p>' + value.namaproduk + '</p>'
+                            '<p>' + value.harga + '</p>';
+                        })
+                        recprod.innerHTML = hasil;
+                    },
+                    error: function(response) {
+                        console.log(response);
+				    }
+      
+        /*
         var resData = [
-                        { images: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
-                        { images: "https://asset.kompas.com/crops/KAb3R0iow9ICldE6SDTvg3Fpw40=/0x0:924x616/750x500/data/photo/2020/07/16/5f0f80d4e5eea.jpg", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
-                        { images: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
-                    ];
+                        { image: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
+                        { image: "https://asset.kompas.com/crops/KAb3R0iow9ICldE6SDTvg3Fpw40=/0x0:924x616/750x500/data/photo/2020/07/16/5f0f80d4e5eea.jpg", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
+                        { image: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
+                    ]; 
         $.each(resData, function (i) {
-            var hasil = '<article class="card"><img class="card-img-top" src=">' + resData[i].images + '" alt="produk" </img><p>' + resData[i].namaproduk + '</p><p>' + resData[i].harga + '</p>';
+            var hasil = '<article class="card"><img class="card-img-top" src="'+resData[i].image+ '"> </img><p>' + resData[i].namaproduk + '</p><p>' + resData[i].harga + '</p>';
             $('#products').append(hasil);
-        })
+        }) 
+         */
+      });
     });
 </script>
