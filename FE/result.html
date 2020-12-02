@@ -24,12 +24,16 @@
 </html>
 
 <script>
+    const data = { "skintype": "oily", "skinprob": "acne", "hargabawah":0, "hargaatas":500000, "umur":true, "kategori": "cream", "alergi1": "snail", "alergi2": "centella"}
     $(document).ready(function(){
        $.ajax({
-                    url: '52.74.114.194:8000/recommend',
+                    url: '/recommend',
                     type:'POST',
                     dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
                     success: function(response) {
+                        console.log(data)
 						console.log(response);
                         hasil = '';
                         var recprod = document.getElementById('products')
