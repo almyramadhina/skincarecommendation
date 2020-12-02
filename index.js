@@ -11,6 +11,7 @@ const { read } = require('fs');
 require('dotenv').config() //buat env
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(serveStatic(path.join(__dirname,"/FE"))) //serve static files in FE Folder
 
@@ -76,7 +77,7 @@ function recommend(data){
   })
 }
 
-app.post('/recommend', cors(), async (req, res) => {
+app.post('/recommend', async (req, res) => {
   await recommend(req.body).then(result =>{
     res.json(result)
   })
@@ -86,7 +87,7 @@ app.post('/recommend', cors(), async (req, res) => {
   })
 })
 
-app.get('/', cors(), async (req, res) => { //home page
+app.get('/', async (req, res) => { //home page
   res.sendFile(path.join(__dirname,"/FE/index.html"));
 });
 
