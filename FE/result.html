@@ -24,7 +24,7 @@
 </html>
 
 <script>
-    const data = { "skintype": "oily", "skinprob": "acne", "hargabawah":0, "hargaatas":500000, "umur":true, "kategori": "cream", "alergi1": "snail", "alergi2": "centella"}
+    const data = { "skintype": "oily", "skinprob": "acne", "hargabawah":0, "hargaatas":500000, "umur":true, "kategori": "cream", "alergi1": "snail"}
     $(document).ready(function(){
        $.ajax({
                     url: '/recommend',
@@ -47,19 +47,7 @@
                     },
                     error: function(response) {
                         console.log(response);
-				    }
-      
-        /*
-        var resData = [
-                        { image: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
-                        { image: "https://asset.kompas.com/crops/KAb3R0iow9ICldE6SDTvg3Fpw40=/0x0:924x616/750x500/data/photo/2020/07/16/5f0f80d4e5eea.jpg", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
-                        { image: "https://image.femaledaily.com/dyn/500/images/prod-pics/product_1544416287_Senka_Perf_800x800.png", namaproduk: 'Senka Perfect Whip White', harga: '46000' },
-                    ]; 
-        $.each(resData, function (i) {
-            var hasil = '<article class="card"><img class="card-img-top" src="'+resData[i].image+ '"> </img><p>' + resData[i].namaproduk + '</p><p>' + resData[i].harga + '</p>';
-            $('#products').append(hasil);
-        }) 
-         */
-      });
+				    }    
+     });
     });
 </script>
