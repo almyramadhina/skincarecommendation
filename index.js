@@ -16,10 +16,10 @@ app.use(serveStatic(path.join(__dirname,"/FE"))) //serve static files in FE Fold
 
 function recommend(data){
   return new Promise((resolve,reject) => {
-    if (!data.umur || (typeof data.hargabawah == 'undefined' && data.hargabawah == null) || (typeof data.hargaatas == 'undefined' && data.hargaatas == null) || !data.kategori || !data.skinprob || !data.skintype){
+    if ((typeof data.hargabawah == 'undefined' && data.hargabawah == null) || (typeof data.hargaatas == 'undefined' && data.hargaatas == null) || !data.kategori || !data.skinprob || !data.skintype){
       reject(new Error("Request Variable Not Complete"))
     } else {
-      if (data.umur<17){ //if umur <17
+      if (data.umur== false){ //if umur <17
         reject(new Error("Forbidden"))
       } else {
         var querytext, values
