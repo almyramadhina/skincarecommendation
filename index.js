@@ -76,7 +76,7 @@ function recommend(data){
   })
 }
 
-app.post('/recommend', async (req, res) => {
+app.post('/recommend', cors(), async (req, res) => {
   await recommend(req.body).then(result =>{
     res.json(result)
   })
@@ -86,12 +86,11 @@ app.post('/recommend', async (req, res) => {
   })
 })
 
-app.get('/', async (req, res) => { //home page
+app.get('/', cors(), async (req, res) => { //home page
   res.sendFile(path.join(__dirname,"/FE/index.html"));
 });
 
 port = process.env.PORT
-app.use(cors());
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}!`)
