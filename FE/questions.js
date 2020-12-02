@@ -1,30 +1,38 @@
-const sendForm = async() => {
-    const data = await JSON.stringify({
-        umur: document.getElementById("age").value,
-        skintype: document.getElementById("type").value,
-        skinprob: document.getElementById("prob").value,
-        kategori: document.getElementById("prod").value,
-        harga:document.getElementById("prc").value,
+               
+function sendForm() {
+    var umur = $('input[name="age"]:checked').val();
+    var skintype = $('input[name="type"]:checked').val();
+    var skinprob = $('input[name="prob"]:checked').val();
+    var kategori = $('input[name="prod"]:checked').val();
+    var alergi = $("#allg input:checkbox:checked").map(function () {
+                 return $(this).val();
+                 }).get();
+    var alergi1 = alergi[0];
+    var alergi2 = alergi[1];
+ 
+    var data = '';
+    if (alergi.length == 1 && alergi[0] == 'none' ) {
+        data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": 0, "hargaatas":100000, "kategori": kategori};
+    } else if (alergi.length == 1 &&  alergi[0] != 'none' ) {
+        data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": 0, "hargaatas":100000, "kategori": kategori, alergi1:alergi[0]};
+    } else {
+        data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": 0, "hargaatas":100000, "kategori": kategori, alergi1:alergi[0], alergi2:alergi[1]};
+    }
 
-        if(harga=prc1){
-            var hargabawah=0;
-            var hargaatas=100000;
-        },
-        elif(harga=prc2) {
-            var hargabawah=100001;
-            var hargaatas=300000;
-        },
-        elif(harga=prc3) {
-            var hargabawah=300001;
-            var hargaatas=500000;
-        },
-        elif(harga=prc4) {
-            var hargabawah=500001;
-            var hargaatas=2000000;
-        },
-	})
     console.log(data);
-    const response = await fetch('\recommend');
-	const json = await response.json();
-	console.log(json);
-}
+    
+    fetch("/recommend", {
+            method: "POST",
+            headers: {
+                "Accept":"application/json",
+                "Content-Type":"application/json; charset=utf-8",
+            },
+            data: JSON.stringify(data)
+        }).then(async (response) => {
+            const content = await response.json();
+            console.log(content);
+        }).catch((error) => {
+            console.error(error);
+        },
+    }
+    
