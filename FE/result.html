@@ -24,20 +24,20 @@
 </html>
 
 <script>
-    var data = { "skintype": "oily", "skinprob": "acne", "hargabawah":0, "hargaatas":500000, "umur": true, "kategori": "cream", "alergi1": "aha"}
+    var reqdata = JSON.parse(window.localStorage.getItem('data'));
     $(document).ready(function(){
        $.ajax({
                     url: '/recommend',
                     type:'POST',
                     dataType: 'json',
                     contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(data),
+                    reqdata: JSON.stringify(reqdata),
                     success: function(response) {
-                        console.log(data)
+                        console.log(reqdata)
 						console.log(response);
                         hasil = '';
                         var recprod = document.getElementById('products')
-                        $.each(response['data'], function(key, value) {
+                        $.each(response['reqdata'], function(key, value) {
                             hasil = 
                             '<article class="card"><img class="card-img-top" src=" '+value.images+ '" style="width:180px;height:250px;"> </img> <h1>' +value.namaproduk + '</h1> <p style="font-size:160%;">' +value.harga + '</p>';
                             $('#products').append(hasil);
@@ -45,7 +45,7 @@
                     },
                     error: function(response) {
                         console.log(response);
-				    }    
+			}    
      });
     });
 </script>
