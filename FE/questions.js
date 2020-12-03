@@ -16,9 +16,9 @@ function sendForm() {
     if (alergi.length == 1 && alergi[0] == 'none' ) {
         data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": hargabawah, "hargaatas":hargaatas, "kategori": kategori};
     } else if (alergi.length == 1 &&  alergi[0] != 'none' ) {
-        data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": hargabawah, "hargaatas":hargaatas, "kategori": kategori, alergi1:alergi[0]};
+        data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": hargabawah, "hargaatas":hargaatas, "kategori": kategori, "alergi1":alergi1};
     } else {
-        data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": hargabawah, "hargaatas":hargaatas, "kategori": kategori, alergi1:alergi[0], alergi2:alergi[1]};
+        data = { "umur": umur, "skintype": skintype, "skinprob": skinprob, "hargabawah": hargabawah, "hargaatas":hargaatas, "kategori": kategori, "alergi1":alergi1, "alergi2":alergi2};
     }
 
     // add cookie
