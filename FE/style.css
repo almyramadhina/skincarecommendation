@@ -170,11 +170,11 @@ h1 {
 }
 
 .card {
-    width: 220px;
+    width: 600px;
     float: auto;
-    border: 1px solid #d3d3d3;
+    border: 8px solid #D1D7DC;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: white;
 }
 
