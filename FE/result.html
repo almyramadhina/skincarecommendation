@@ -38,12 +38,11 @@
                     contentType: "application/json; charset=utf-8",
                     data: JSON.stringify(reqdata),
                     success: function(response) {
-                        console.log(reqdata)
-						console.log(response);
+			console.log(response);
                         hasil = '';
                         var recprod = document.getElementById('products')
                         if (!response.data) { //request ga lengkap
-                            hasil = '<p style="font-size:150%;"> Oops, sorry your request variables are not complete :( </p> <img class="card-img-top" src="https://stickershop.line-scdn.net/stickershop/v1/product/1037839/LINEStorePC/main.png;compress=true"> </img>' ;
+                            hasil = '<p style="font-size:150%;"> Oops, sorry you did not complete the form :( </p> <img class="card-img-top" src="https://stickershop.line-scdn.net/stickershop/v1/product/1037839/LINEStorePC/main.png;compress=true"> </img>' ;
                             recprod.innerHTML = hasil;
                         } else {
                             if (response.data.length == 0) {
