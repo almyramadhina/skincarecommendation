@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Skin care recommendation</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+		<script src="js/modernizr.custom.63321.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<body>
+    <div class="container">
+        <br/><br/>
+        <h1>Recommended Products for Your Skin</h1>
+        <br/><br/>
+
+        <main class="e-card-horizontal">
+            <div id="products" align="center">
+             </div>
+        </main>
+
+    </div>
+	</body>
+</html>
+
+<script>
+    var reqdata = JSON.parse(window.localStorage.getItem('data'));
+    $(document).ready(function(){
+       $.ajax({
+                    url: '/recommend',
+                    type:'POST',
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    reqdata: JSON.stringify(reqdata),
+                    success: function(response) {
+                        console.log(reqdata)
+						console.log(response);
+                        hasil = '';
+                        var recprod = document.getElementById('products')
+                        $.each(response['reqdata'], function(key, value) {
+                            hasil = 
+                            '<article class="card"><img class="card-img-top" src=" '+value.images+ '" style="width:180px;height:250px;"> </img> <h1>' +value.namaproduk + '</h1> <p style="font-size:160%;">' +value.harga + '</p>';
+                            $('#products').append(hasil);
+                        })     
+                    },
+                    error: function(response) {
+                        console.log(response);
+				    }    
+     });
+    });
+</script>
