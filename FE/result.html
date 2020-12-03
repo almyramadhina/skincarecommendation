@@ -37,7 +37,7 @@
 						console.log(response);
                         hasil = '';
                         var recprod = document.getElementById('products')
-                        $.each(response['reqdata'], function(key, value) {
+                        $.each(response['data'], function(key, value) {
                             hasil = 
                             '<article class="card"><img class="card-img-top" src=" '+value.images+ '" style="width:180px;height:250px;"> </img> <h1>' +value.namaproduk + '</h1> <p style="font-size:160%;">' +value.harga + '</p>';
                             $('#products').append(hasil);
@@ -45,7 +45,8 @@
                     },
                     error: function(response) {
                         console.log(response);
-			}    
-     });
+				    },    
+      });
+    localStorage.removeItem('data');
     });
 </script>
