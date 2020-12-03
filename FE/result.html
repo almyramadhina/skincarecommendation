@@ -26,7 +26,12 @@
 <script>
     var reqdata = JSON.parse(window.localStorage.getItem('data'));
     $(document).ready(function(){
-       $.ajax({
+        if (reqdata.umur == false){
+            var recprod = document.getElementById('products')
+            hasil = '<p style="font-size:150%;"> Oops, sorry there is no recommended product available for underage :( </p> <img class="card-img-top" src="https://i.pinimg.com/originals/93/96/01/939601d73b4cf9a51f8ebbd981371ab1.png"> </img>' ;
+            recprod.innerHTML = hasil; 
+        } else {
+         $.ajax({
                     url: '/recommend',
                     type:'POST',
                     dataType: 'json',
@@ -37,22 +42,27 @@
 						console.log(response);
                         hasil = '';
                         var recprod = document.getElementById('products')
-                        if (response.data.length == 0) {
-                            console.log(response.data.length);
-                                hasil = '<p style="font-size:150%;"> Oops, sorry there is no recommended product available :( </p>';
-                                recprod.innerHTML = hasil;
+                        if (!response.data) { //request ga lengkap
+                            hasil = '<p style="font-size:150%;"> Oops, sorry your request variables are not complete :( </p> <img class="card-img-top" src="https://stickershop.line-scdn.net/stickershop/v1/product/1037839/LINEStorePC/main.png;compress=true"> </img>' ;
+                            recprod.innerHTML = hasil;
                         } else {
-                            $.each(response['data'], function(key, value) {
-                                 hasil = 
-                                '<article class="card"><img class="card-img-top" src=" '+value.images+ '" style="width:180px;height:250px;"> </img> <h1>' +value.namaproduk + '</h1> <p style="font-size:160%;">' +value.harga + '</p>';
-                                $('#products').append(hasil);
-                            })
-                        };
+                            if (response.data.length == 0) {
+                                hasil = '<p style="font-size:150%;"> Oops, sorry there is no recommended product available :( </p>  <img class="card-img-top" src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/38265/searching-private-investigator-clipart-md.png"> </img>';
+                                recprod.innerHTML = hasil;
+                            } else {
+                                $.each(response['data'], function(key, value) {
+                                     hasil = 
+                                    '<article class="card"><img class="card-img-top" src=" '+value.images+ '" style="width:180px;height:250px;"> </img> <h1>' +value.namaproduk + '</h1> <p style="font-size:160%;">' +value.harga + '</p>';
+                                    $('#products').append(hasil);
+                                })
+                            }
+                        }
                     },
                     error: function(response) {
                         console.log(response);
 				    }    
-      }),
+        })
+      }
     localStorage.removeItem('data');
     });
 </script>
